@@ -1,1 +1,0 @@
-# shubhamxgupta.github.io
