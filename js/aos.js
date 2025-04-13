@@ -145,17 +145,6 @@
                                       (0, b.default)(w, j.once);
                                   }, 99)
                               ),
-                              document.addEventListener(
-                                  "DOMNodeRemoved",
-                                  function (e) {
-                                      var t = e.target;
-                                      t &&
-                                          1 === t.nodeType &&
-                                          t.hasAttribute &&
-                                          t.hasAttribute("data-aos") &&
-                                          (0, f.default)(S, 50, !0);
-                                  }
-                              ),
                               (0, d.default)("[data-aos]", S),
                               w)
                     );
