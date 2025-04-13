@@ -459,6 +459,129 @@ h6,
     line-height: 1.2;
 }
 
+.about-mf .box-shadow-full {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.about-mf .about-img {
+    margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+    margin-left: 10px;
+}
+
+.skill-mf .progress {
+    /* background-color: #cde1f8; */
+    margin: 0.5rem 0 1.2rem 0;
+    border-radius: 0;
+    height: 0.7rem;
+}
+.skill-mf .progress .progress-bar {
+    height: 0.7rem;
+    background-color: #ffbd39;
+}
+
+/* Animation styles */
+#typing-animation {
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(20, end) infinite;
+}
+
+#typing-animation:before {
+    content: "";
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ccc;
+    animation: typing-cursor 0.5s ease-in-out infinite;
+}
+
+#services {
+    padding: 6.2rem 0;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 2rem;
+}
+
+#services form {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgb(40, 39, 39);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#services form div {
+    margin-bottom: 15px;
+}
+
+#services form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#services form input,
+#services form textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#services form button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#services form button:hover {
+    background-color: #0056b3;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes typing-cursor {
+    from {
+        width: 5px;
+    }
+    to {
+        width: 0;
+    }
+}
+
+/* project image zoom effect */
+.zoom-effect {
+    overflow: hidden;
+    transition: transform 0.3s ease-out;
+}
+.zoom-effect:hover {
+    transform: scale(1.1);
+}
+
 hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
