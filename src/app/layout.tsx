@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
-import Navbar from "@/components/layout/Navbar";
+// import Navbar from "@/components/layout/Navbar"; // Replaced by Dock
 import Footer from "@/components/layout/Footer";
 import Terminal from "@/components/terminal/Terminal";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { CommandMenu } from "@/components/ui/CommandMenu";
 import SpotlightCursor from "@/components/ui/SpotlightCursor";
+import { Dock } from "@/components/ui/Dock";
+import { SocialFloater } from "@/components/ui/SocialFloater";
 import Script from "next/script";
 import "./globals.css";
 
@@ -31,8 +33,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ... (other imports remain the same)
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +41,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        {/* ... (links remain the same) */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -65,7 +64,6 @@ export default function RootLayout({
         className={`${sans.variable} ${mono.variable} antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans`}
       >
         <Script
-          // ... existing script
           id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -93,8 +91,14 @@ export default function RootLayout({
         <SpotlightCursor />
         <CommandMenu />
         <ScrollProgress />
-        <Navbar />
-        <main className="min-h-screen flex flex-col">{children}</main>
+
+        {/* NEW NAVIGATION ARCHITECTURE */}
+        <Dock />
+        <SocialFloater />
+
+        {/* Replaced Navbar with Dock/Floater. Added pb-32 to account for Dock height */}
+        <main className="min-h-screen flex flex-col pb-32">{children}</main>
+
         <Terminal />
         <Footer />
       </body>

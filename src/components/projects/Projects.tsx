@@ -1,46 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Section from "@/components/ui/Section";
-import ProjectCard from "./ProjectCard";
-import { projectsData } from "@/data/projects";
+import { ProjectCarousel } from "./ProjectCarousel";
 
 export default function Projects() {
   return (
-    <Section id="projects" className="bg-slate-50 dark:bg-slate-900/50">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400">
-            A selection of projects I've worked on.
-          </p>
-        </motion.div>
+    <section
+      id="projects"
+      className="py-24 bg-slate-950 text-white relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.1)_0%,_transparent_70%)] pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-sans tracking-tight">
+            Selected <span className="text-blue-500">Works</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            A showcase of complex systems, interactive experiments, and
+            engineering problems solved.
+          </p>
         </div>
+
+        {/* 3D Carousel Implementation */}
+        <ProjectCarousel />
 
         <div className="text-center mt-12">
           <a
             href="https://github.com/ShubhamxGupta"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 font-medium hover:underline inline-flex items-center gap-1"
+            className="text-blue-500 hover:text-blue-400 font-medium hover:underline inline-flex items-center gap-1"
           >
             View more on GitHub
           </a>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

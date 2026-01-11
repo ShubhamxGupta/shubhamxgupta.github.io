@@ -13,19 +13,50 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row items-center gap-12"
+        className="flex flex-col md:flex-row items-center gap-20 xl:gap-32"
       >
         {/* Image Side */}
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-            {
+        <div className="w-full md:w-1/2 flex justify-center">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 group perspective-1000">
+            {/* Photo 3 (Left Wing) */}
+            <div
+              className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 z-10 bg-slate-200 origin-bottom-right
+              rotate-[-6deg] translate-x-[-10px] scale-95 opacity-80
+              group-hover:rotate-[-12deg] group-hover:translate-x-[-50%] group-hover:scale-100 group-hover:opacity-100"
+            >
               <Image
-                src="/images/profile/photo1.jpg"
-                alt="Shubham Gupta"
+                src="/images/profile/photo3.jpg"
+                alt="Shubham Gupta 3"
                 fill
                 className="object-cover"
               />
-            }
+            </div>
+            {/* Photo 2 (Right Wing) */}
+            <div
+              className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 z-20 bg-slate-200 origin-bottom-left
+              rotate-[6deg] translate-x-[10px] scale-95 opacity-80
+              group-hover:rotate-[12deg] group-hover:translate-x-[50%] group-hover:scale-100 group-hover:opacity-100"
+            >
+              <Image
+                src="/images/profile/photo2.png"
+                alt="Shubham Gupta 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Photo 1 (Center) */}
+            <div
+              className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 z-30 bg-slate-200
+              rotate-0 scale-100
+              group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-blue-500/20"
+            >
+              <Image
+                src="/images/profile/photo1.jpg"
+                alt="Shubham Gupta 1"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 

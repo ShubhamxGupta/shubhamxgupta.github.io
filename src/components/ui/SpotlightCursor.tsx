@@ -35,7 +35,7 @@ export default function SpotlightCursor() {
 
   // Normal: 120px (very focused). Click: 80px (pinpoint).
   // Opacity slightly higher to compensate for smaller size.
-  const size = isClicking ? 80 : 120;
+  const size = isClicking ? 30 : 60;
   const opacity = isClicking ? 0.35 : 0.2;
 
   const background = useMotionTemplate`radial-gradient(
@@ -59,6 +59,30 @@ export default function SpotlightCursor() {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [mouseX, mouseY]);
+
+  // Track if we should show the cursor (desktop only)
+  const [showCursor, setShowCursor] = useState(false);
+
+  useEffect(() => {
+    // Check initial state
+    const checkPointer = () => {
+      setShowCursor(window.matchMedia("(pointer: fine)").matches);
+    };
+    checkPointer();
+
+    // Optional: Listen for changes
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+    const handleChange = (e: MediaQueryListEvent) => setShowCursor(e.matches);
+
+    // Modern browsers support addEventListener on MediaQueryList
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+  }, []);
+
+  // Don't render anything if not on a "fine" pointer device (mobile/tablet)
+  if (!showCursor) return null;
 
   return (
     <motion.div

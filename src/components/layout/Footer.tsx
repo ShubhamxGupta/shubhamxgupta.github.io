@@ -1,10 +1,14 @@
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { FooterSignature } from "@/components/ui/FooterSignature";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-50 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-slate-50 dark:bg-slate-900 pt-12 pb-40 border-t border-slate-200 dark:border-slate-800 overflow-hidden relative">
       <div className="container mx-auto px-6 flex flex-col items-center gap-6">
-        <div className="flex gap-6">
+        {/* Massive Signature with Hover Effect */}
+        <FooterSignature />
+
+        <div className="flex gap-6 z-10">
           <SocialLink
             href="https://github.com/ShubhamxGupta"
             icon={<Github size={20} />}
@@ -22,7 +26,7 @@ export default function Footer() {
             icon={<Mail size={20} />}
           />
         </div>
-        <p className="text-slate-500 text-sm text-center">
+        <p className="text-slate-500 text-sm text-center z-10">
           © {new Date().getFullYear()} Shubham Gupta. All rights reserved.
         </p>
       </div>
