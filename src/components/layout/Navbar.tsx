@@ -8,9 +8,11 @@ import { clsx } from "clsx";
 
 const navItems = [
   { name: "Home", href: "/#home" },
-  { name: "About", href: "/#about" },
-  { name: "Skills", href: "/#skills" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Writing", href: "/writing" },
+  { name: "Now", href: "/now" },
   { name: "Projects", href: "/#projects" },
+  { name: "Skills", href: "/#skills" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -55,11 +57,24 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
+
+          {/* Command K Hint */}
+          <button
+            onClick={() =>
+              document.dispatchEvent(
+                new KeyboardEvent("keydown", { key: "k", metaKey: true })
+              )
+            }
+            className="ml-4 px-3 py-1.5 text-xs font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-md border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors flex items-center gap-2 cursor-pointer"
+          >
+            <span>Cmd+K</span>
+          </button>
+
           <a
             href="https://github.com/ShubhamxGupta"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 p-2 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors"
           >
             <Github size={20} />
           </a>

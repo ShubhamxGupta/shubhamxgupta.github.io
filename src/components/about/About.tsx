@@ -20,7 +20,7 @@ export default function About() {
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
             {
               <Image
-                src="/images/photo1.jpg"
+                src="/images/profile/photo1.jpg"
                 alt="Shubham Gupta"
                 fill
                 className="object-cover"
@@ -36,7 +36,7 @@ export default function About() {
           </h2>
           <div className="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
             <p>
-              Hi, I&apos;m Shubham Gupta — a passionate Computer Science
+              Hi, I&apos;m Shubham Gupta - a passionate Computer Science
               graduate from Vellore Institute of Technology, Chennai, with a
               CGPA of 8.3/10.
             </p>
