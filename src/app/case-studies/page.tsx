@@ -3,7 +3,7 @@
 import Section from "@/components/ui/Section";
 import { caseStudies } from "@/data/caseStudies";
 import { motion } from "framer-motion";
-import { ArrowRight, Box, Cpu, FileText } from "lucide-react";
+import { ArrowRight, Box, Cpu } from "lucide-react";
 import Link from "next/link";
 
 export default function CaseStudiesPage() {

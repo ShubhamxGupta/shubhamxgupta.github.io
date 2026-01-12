@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import { experienceData } from "@/data/experience";
-import { Briefcase, GraduationCap } from "lucide-react";
 import { clsx } from "clsx";
 
 export default function Experience() {

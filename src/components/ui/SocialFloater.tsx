@@ -3,16 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
+import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
 
 const SOCIALS = [
-  { name: "GitHub", href: "https://github.com/ShubhamxGupta", icon: Github },
+  { name: "GitHub", href: "https://github.com/ShubhamxGupta", icon: SiGithub },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/shubhamxgupta",
     icon: Linkedin,
   },
-  { name: "Twitter", href: "https://x.com/ShubhamxGupta1", icon: Twitter },
+  { name: "Twitter", href: "https://x.com/ShubhamxGupta1", icon: SiX },
   { name: "Email", href: "mailto:shubhamxgupta1@gmail.com", icon: Mail },
 ];
 

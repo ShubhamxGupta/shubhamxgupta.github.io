@@ -13,8 +13,6 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Sun,
-  Moon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 

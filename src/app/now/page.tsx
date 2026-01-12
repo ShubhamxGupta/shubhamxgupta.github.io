@@ -2,7 +2,7 @@
 
 import Section from "@/components/ui/Section";
 import { motion } from "framer-motion";
-import { Hammer, BookOpen, Target, Clock, Zap, MapPin } from "lucide-react";
+import { Hammer, BookOpen, Target, Zap, MapPin } from "lucide-react";
 
 export default function NowPage() {
   return (

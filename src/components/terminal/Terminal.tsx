@@ -79,7 +79,7 @@ export default function Terminal() {
         output = (
           <ul className="list-disc list-inside">
             <li>Wifi-Card Generator</li>
-            <li>Rubik's Cube</li>
+            <li>Rubik&apos;s Cube</li>
             <li>Hug Bunny</li>
             <li>Claw Machine</li>
           </ul>
@@ -102,7 +102,7 @@ export default function Terminal() {
       default:
         output = (
           <span className="text-red-400">
-            Command not found: {cmd}. Type 'help' for options.
+            Command not found: {cmd}. Type &apos;help&apos; for options.
           </span>
         );
     }

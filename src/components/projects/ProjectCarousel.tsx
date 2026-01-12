@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Github, ExternalLink } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import Image from "next/image"; // Import Image from next/image
@@ -20,8 +20,6 @@ export function ProjectCarousel() {
   };
 
   const getCardStyle = (index: number) => {
-    const diff =
-      (index - activeIndex + projectsData.length) % projectsData.length;
     // Handle wrap-around for simpler 3-item logic if needed, but here we strictly calculate relative position
     // We want -1, 0, 1 logic
 

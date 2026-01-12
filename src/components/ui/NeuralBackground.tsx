@@ -15,7 +15,6 @@ export default function NeuralBackground() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const particles: Particle[] = [];
     const particleCount = 60;
     const connectionDistance = 150;
 
@@ -25,49 +24,31 @@ export default function NeuralBackground() {
       window.matchMedia("(prefers-color-scheme: dark)").matches;
     const color = isDark ? "rgba(255, 255, 255, " : "rgba(59, 130, 246, "; // Blue in light, White in dark
 
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
+    const createParticle = () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      size: Math.random() * 2 + 1,
+    });
 
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = color + "0.5)";
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    const particles = Array.from({ length: particleCount }, createParticle);
 
     function animate() {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p, index) => {
-        p.update();
-        p.draw();
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = color + "0.5)";
+        ctx.fill();
 
         // Connect particles
         for (let j = index + 1; j < particles.length; j++) {

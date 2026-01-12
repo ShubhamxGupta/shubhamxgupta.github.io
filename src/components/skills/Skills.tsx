@@ -94,10 +94,11 @@ export default function Skills() {
     >
       {/* Decorative Background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-5 dark:opacity-10">
-        <img
+        <Image
           src="/images/ui/ai-flow.png"
           alt=""
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
 

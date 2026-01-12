@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const CODE_LINES = [
   { text: "class", color: "text-purple-400" },
@@ -54,8 +53,6 @@ const CODE_LINES = [
 ];
 
 export function HeroVisual() {
-  const [displayedText, setDisplayedText] = useState<typeof CODE_LINES>([]);
-
   // Simple typing effect simulation
   // In a real implementation, we might want char-by-char, but chunk-by-chunk is smoother for layout
 
