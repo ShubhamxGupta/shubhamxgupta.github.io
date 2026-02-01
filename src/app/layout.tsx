@@ -25,11 +25,18 @@ export const metadata: Metadata = {
   title: "Shubham Gupta | AI/ML Engineer",
   description:
     "Portfolio of Shubham Gupta - AI/ML Engineer & Computer Science Graduate. Specializing in Deep Learning, Computer Vision, and Generative AI.",
+  metadataBase: new URL("https://shubhamxgupta.github.io"),
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Shubham Gupta | AI/ML Engineer",
     description:
       "Portfolio of Shubham Gupta - AI/ML Engineer & Computer Science Graduate. Specializing in Deep Learning, Computer Vision, and Generative AI.",
     type: "website",
+    url: "https://shubhamxgupta.github.io",
+    siteName: "Shubham Gupta",
   },
 };
 
