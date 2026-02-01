@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, PanInfo } from "framer-motion";
 import { ArrowLeft, ArrowRight, Github, ExternalLink } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import Image from "next/image"; // Import Image from next/image
 
 export function ProjectCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check unique mobile breakpoint for 3D effect adjustments
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const nextProject = () => {
     setActiveIndex((prev) => (prev + 1) % projectsData.length);
@@ -15,7 +26,7 @@ export function ProjectCarousel() {
 
   const prevProject = () => {
     setActiveIndex(
-      (prev) => (prev - 1 + projectsData.length) % projectsData.length
+      (prev) => (prev - 1 + projectsData.length) % projectsData.length,
     );
   };
 
@@ -44,8 +55,8 @@ export function ProjectCarousel() {
       return {
         zIndex: 10,
         scale: 0.8,
-        x: 300,
-        rotateY: -25,
+        x: isMobile ? 40 : 300, // Tighter stack on mobile
+        rotateY: isMobile ? -5 : -25, // Less rotation on mobile
         opacity: 0.6,
         filter: "brightness(0.6)",
       };
@@ -54,8 +65,8 @@ export function ProjectCarousel() {
       return {
         zIndex: 10,
         scale: 0.8,
-        x: -300,
-        rotateY: 25,
+        x: isMobile ? -40 : -300,
+        rotateY: isMobile ? 5 : 25,
         opacity: 0.6,
         filter: "brightness(0.6)",
       };
@@ -72,8 +83,19 @@ export function ProjectCarousel() {
     }
   };
 
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => {
+    if (info.offset.x > 50) {
+      prevProject();
+    } else if (info.offset.x < -50) {
+      nextProject();
+    }
+  };
+
   return (
-    <div className="relative w-full h-[600px] flex items-center justify-center overflow-visible perspective-[1200px] py-12">
+    <div className="relative w-full h-[500px] md:h-[600px] flex items-center justify-center overflow-visible perspective-[1200px] py-12">
       {/* Navigation Buttons */}
       <button
         onClick={prevProject}
@@ -95,7 +117,11 @@ export function ProjectCarousel() {
         return (
           <motion.div
             key={project.id}
-            className="absolute w-[350px] md:w-[450px] h-[550px] bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+            className="absolute w-[85vw] md:w-[450px] h-[500px] md:h-[550px] bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+            drag={isMobile ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.05}
+            onDragEnd={handleDragEnd}
             initial={false}
             animate={{
               zIndex: style.zIndex,
@@ -120,6 +146,7 @@ export function ProjectCarousel() {
                 src={project.image}
                 alt={project.title}
                 fill
+                sizes="(max-width: 768px) 85vw, 450px"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />

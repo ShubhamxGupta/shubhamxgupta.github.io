@@ -38,7 +38,7 @@ export default function Experience() {
               <div
                 className={clsx(
                   "absolute -left-[9px] md:-left-[11px] top-0 w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-white dark:border-slate-950",
-                  item.type === "work" ? "bg-blue-600" : "bg-emerald-500"
+                  item.active ? "bg-emerald-500" : "bg-blue-600",
                 )}
               />
 
@@ -51,7 +51,7 @@ export default function Experience() {
                 </span>
               </div>
 
-              <div className="text-base text-blue-600 dark:text-blue-400 font-medium mb-3">
+              <div className="text-base text-emerald-500 dark:text-blue-400 font-medium mb-3">
                 {item.company}
               </div>
 

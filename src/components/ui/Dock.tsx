@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 // --- Dock Config ---
-const DOCK_ITEMS = [
+export const DOCK_ITEMS = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/#about", icon: User },
   { name: "Skills", href: "/#skills", icon: Terminal },
@@ -148,7 +148,7 @@ function SearchTrigger() {
         }}
         onClick={() =>
           document.dispatchEvent(
-            new KeyboardEvent("keydown", { key: "k", metaKey: true })
+            new KeyboardEvent("keydown", { key: "k", metaKey: true }),
           )
         }
         className="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center border border-white/10 shadow-sm relative z-10"

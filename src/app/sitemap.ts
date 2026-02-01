@@ -3,7 +3,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { writings } from "@/data/writings";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://shubhamxgupta.github.io";
+  const baseUrl = "https://shubhamxgupta.xyz";
 
   // Static routes
   const routes = ["", "/case-studies", "/writing", "/now"].map((route) => ({

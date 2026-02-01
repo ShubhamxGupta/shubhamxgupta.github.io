@@ -8,6 +8,7 @@ import { CommandMenu } from "@/components/ui/CommandMenu";
 import SpotlightCursor from "@/components/ui/SpotlightCursor";
 import { Dock } from "@/components/ui/Dock";
 import { SocialFloater } from "@/components/ui/SocialFloater";
+import { MobileMenu } from "@/components/ui/MobileMenu";
 import Script from "next/script";
 import "./globals.css";
 
@@ -68,7 +69,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={`${sans.variable} ${mono.variable} antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans`}
+        className={`${sans.variable} ${mono.variable} antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans relative`}
       >
         <Script
           id="json-ld"
@@ -95,13 +96,18 @@ export default function RootLayout({
             }),
           }}
         />
-        <SpotlightCursor />
+        <div className="hidden md:block">
+          <SpotlightCursor />
+        </div>
         <CommandMenu />
         <ScrollProgress />
 
         {/* NEW NAVIGATION ARCHITECTURE */}
-        <Dock />
-        <SocialFloater />
+        <div className="hidden md:block">
+          <Dock />
+          <SocialFloater />
+        </div>
+        <MobileMenu />
 
         {/* Replaced Navbar with Dock/Floater. Added pb-32 to account for Dock height */}
         <main className="min-h-screen flex flex-col pb-32">{children}</main>

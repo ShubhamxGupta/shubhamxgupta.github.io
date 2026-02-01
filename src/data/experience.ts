@@ -6,6 +6,7 @@ export interface ExperienceItem {
   description?: string;
   achievements?: string[];
   type: "work" | "education";
+  active?: boolean;
 }
 
 export const experienceData: ExperienceItem[] = [
@@ -20,7 +21,8 @@ export const experienceData: ExperienceItem[] = [
       "Reduced UI modernization efforts by approximately 40%",
       "Engineered static analysis rules in Kotlin to preemptively detect insecure XML patterns (e.g., hardcoded secrets) prior to conversion",
       "Conducting bi-weekly code reviews and enforcing secure coding guidelines, resulting in zero critical vulnerabilities in the beta release"
-    ]
+    ],
+    active: true
   },
   {
     id: "bluestocks",
@@ -34,7 +36,8 @@ export const experienceData: ExperienceItem[] = [
       "Developed responsive frontend components using React, Tailwind CSS, and Vite",
       "Designed and implemented RESTful APIs using Django and Django REST Framework",
       "Managed PostgreSQL database schema and enabled document upload features"
-    ]
+    ],
+    active: false
   },
   {
     id: "sparks",
@@ -47,7 +50,8 @@ export const experienceData: ExperienceItem[] = [
       "Consistently delivered high-quality and efficient solutions codes",
       "Effectively communicated complex concepts to co-workers",
       "Developed valuable projects and experience in website making"
-    ]
+    ],
+    active: false
   },
   {
     id: "vit",
@@ -55,7 +59,8 @@ export const experienceData: ExperienceItem[] = [
     company: "Vellore Institute of Technology, Chennai",
     period: "2023 - Present",
     type: "education",
-    description: "CGPA: 8.2 (4 sem). Active member of Robotics Club."
+    description: "CGPA: 8.2 (4 sem). Active member of Robotics Club.",
+    active: true
   },
   {
     id: "mps",
@@ -63,6 +68,7 @@ export const experienceData: ExperienceItem[] = [
     company: "Maheshwari Public School, Jaipur",
     period: "2011 - 2023",
     type: "education",
-    description: "CGPA: 8"
+    description: "CGPA: 8",
+    active: false
   }
 ];

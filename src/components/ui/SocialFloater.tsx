@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
 import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
 
-const SOCIALS = [
+export const SOCIALS = [
   { name: "GitHub", href: "https://github.com/ShubhamxGupta", icon: SiGithub },
   {
     name: "LinkedIn",
