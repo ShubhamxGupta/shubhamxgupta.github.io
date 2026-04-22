@@ -14,7 +14,7 @@ export const experienceData: ExperienceItem[] = [
     id: "samsung",
     role: "Team Lead - Research Intern",
     company: "Samsung PRISM Remote",
-    period: "Aug 2025 - Present",
+    period: "Jun 2025 - Apr 2026",
     type: "work",
     description: "Leading a 4-person team in developing a secure XML-to-Jetpack Compose migration tool.",
     achievements: [
@@ -22,7 +22,7 @@ export const experienceData: ExperienceItem[] = [
       "Engineered static analysis rules in Kotlin to preemptively detect insecure XML patterns (e.g., hardcoded secrets) prior to conversion",
       "Conducting bi-weekly code reviews and enforcing secure coding guidelines, resulting in zero critical vulnerabilities in the beta release"
     ],
-    active: true
+    active: false
   },
   {
     id: "bluestocks",
@@ -59,7 +59,7 @@ export const experienceData: ExperienceItem[] = [
     company: "Vellore Institute of Technology, Chennai",
     period: "2023 - Present",
     type: "education",
-    description: "CGPA: 8.2 (4 sem). Active member of Robotics Club.",
+    description: "CGPA: 8.3 (5 sem). Active member of Robotics Club.",
     active: true
   },
   {
