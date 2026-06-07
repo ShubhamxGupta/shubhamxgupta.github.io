@@ -154,10 +154,20 @@ export function CommandMenu() {
                   <Item
                     onSelect={() =>
                       runCommand(() => {
-                        navigator.clipboard.writeText(
-                          "shubhamxgupta1@gmail.com"
-                        );
-                        alert("Email copied to clipboard!");
+                        const email = "shubhamxgupta1@gmail.com";
+                        if (navigator.clipboard) {
+                          navigator.clipboard.writeText(email)
+                            .then(() => alert("Email copied to clipboard!"))
+                            .catch((err) => console.error("Clipboard copy failed", err));
+                        } else {
+                          const textarea = document.createElement("textarea");
+                          textarea.value = email;
+                          document.body.appendChild(textarea);
+                          textarea.select();
+                          document.execCommand("copy");
+                          document.body.removeChild(textarea);
+                          alert("Email copied to clipboard!");
+                        }
                       })
                     }
                   >

@@ -99,12 +99,14 @@ export function ProjectCarousel() {
       {/* Navigation Buttons */}
       <button
         onClick={prevProject}
+        aria-label="Previous project slide"
         className="absolute left-4 md:left-12 z-30 p-3 bg-white/10 dark:bg-slate-900/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
       >
         <ArrowLeft size={24} />
       </button>
       <button
         onClick={nextProject}
+        aria-label="Next project slide"
         className="absolute right-4 md:right-12 z-30 p-3 bg-white/10 dark:bg-slate-900/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
       >
         <ArrowRight size={24} />
@@ -164,6 +166,8 @@ export function ProjectCarousel() {
                       <a
                         href={project.github}
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View GitHub repository for ${project.title}`}
                         className="text-slate-400 hover:text-white transition-colors"
                       >
                         <Github size={20} />
@@ -173,6 +177,8 @@ export function ProjectCarousel() {
                       <a
                         href={project.link}
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View live website for ${project.title}`}
                         className="text-slate-400 hover:text-white transition-colors"
                       >
                         <ExternalLink size={20} />

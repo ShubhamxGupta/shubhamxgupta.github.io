@@ -5,7 +5,7 @@ import { writings } from "@/data/writings";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://shubhamxgupta.xyz";
+  const baseUrl = "https://shubhamxgupta.github.io";
 
   // Static routes
   const routes = ["", "/case-studies", "/writing", "/now"].map((route) => ({

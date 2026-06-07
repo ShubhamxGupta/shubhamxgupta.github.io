@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -12,10 +12,12 @@ export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close menu on route change
-  useEffect(() => {
+  // Close menu on route change during rendering instead of an effect to prevent cascading render warnings
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -80,6 +82,7 @@ export function MobileMenu() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Visit my ${social.name} page`}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 + i * 0.05 }}

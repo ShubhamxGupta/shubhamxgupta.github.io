@@ -33,7 +33,9 @@ export default function Contact() {
         "service_1t2353f",
         "template_ptdjfpp",
         data,
-        "Fl7b-_RebQoV8iqIJ"
+        {
+          publicKey: "Fl7b-_RebQoV8iqIJ",
+        }
       );
       setStatus("success");
       reset();

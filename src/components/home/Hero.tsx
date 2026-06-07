@@ -86,6 +86,7 @@ export default function Hero() {
                 href="https://github.com/ShubhamxGupta"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View GitHub Profile"
                 className="flex items-center justify-center w-14 h-14 rounded-full border border-white/20 text-slate-300 hover:border-blue-400 hover:text-blue-400 transition-colors backdrop-blur-sm bg-white/5"
               >
                 <Github size={24} />

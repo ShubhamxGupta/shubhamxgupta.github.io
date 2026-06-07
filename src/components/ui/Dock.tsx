@@ -66,7 +66,7 @@ function DockIcon({
   const isHovered = hoveredIndex === index;
 
   return (
-    <Link href={item.href}>
+    <Link href={item.href} aria-label={item.name}>
       <motion.div
         className="relative flex flex-col items-center justify-end cursor-none" // cursor-none hides default pointer
         onMouseEnter={() => setHoveredIndex(index)}
@@ -143,6 +143,7 @@ function SearchTrigger() {
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
     >
       <motion.button
+        aria-label="Open global search"
         animate={{
           scale: isHovered ? 1.5 : 1,
         }}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import { experienceData } from "@/data/experience";
 import { clsx } from "clsx";
+import Image from "next/image";
 
 export default function Experience() {
   return (
@@ -34,13 +35,33 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative pl-8 md:pl-12"
             >
-              {/* Icon */}
-              <div
-                className={clsx(
-                  "absolute -left-[9px] md:-left-[11px] top-0 w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-white dark:border-slate-950",
-                  item.active ? "bg-emerald-500" : "bg-blue-600",
+              {/* Logo / Icon Container */}
+              <div className="absolute -left-5 md:-left-6 top-0 z-10 w-10 h-10 md:w-12 md:h-12">
+                <div
+                  className={clsx(
+                    "w-full h-full rounded-full overflow-hidden border-2 bg-white dark:bg-slate-900 flex items-center justify-center shadow-md transition-all duration-300",
+                    item.active
+                      ? "border-emerald-500 ring-4 ring-emerald-500/20"
+                      : "border-slate-200 dark:border-slate-800 hover:border-blue-500"
+                  )}
+                >
+                  <Image
+                    src={item.logo}
+                    alt={item.company}
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+
+                {/* Active Indicator Pulse (Outside overflow-hidden so it's fully visible) */}
+                {item.active && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 z-20">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white dark:border-slate-950"></span>
+                  </span>
                 )}
-              />
+              </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">

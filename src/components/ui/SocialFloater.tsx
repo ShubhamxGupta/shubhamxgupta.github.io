@@ -35,6 +35,7 @@ function SocialIcon({ social }: { social: (typeof SOCIALS)[0] }) {
       href={social.href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`Visit my ${social.name} page`}
       className="relative flex items-center justify-center cursor-none" // cursor-none
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

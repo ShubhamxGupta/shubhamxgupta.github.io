@@ -12,18 +12,22 @@ export default function Footer() {
           <SocialLink
             href="https://github.com/ShubhamxGupta"
             icon={<Github size={20} />}
+            label="GitHub profile"
           />
           <SocialLink
             href="https://www.linkedin.com/in/shubhamxgupta/"
             icon={<Linkedin size={20} />}
+            label="LinkedIn profile"
           />
           <SocialLink
             href="https://x.com/ShubhamxGupta1"
             icon={<Twitter size={20} />}
+            label="Twitter / X profile"
           />
           <SocialLink
             href="mailto:shubhamxgupta1@gmail.com"
             icon={<Mail size={20} />}
+            label="Email Shubham Gupta"
           />
         </div>
         <p className="text-slate-500 text-sm text-center z-10">
@@ -34,12 +38,21 @@ export default function Footer() {
   );
 }
 
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+function SocialLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md transition-all"
     >
       {icon}

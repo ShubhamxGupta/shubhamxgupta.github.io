@@ -40,6 +40,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View live demo of ${project.title}`}
             className="text-slate-400 hover:text-blue-600 transition-colors"
           >
             <ArrowUpRight size={20} />
@@ -67,6 +68,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`Visit project: ${project.title}`}
         className="absolute inset-0 z-10"
       />
     </motion.div>

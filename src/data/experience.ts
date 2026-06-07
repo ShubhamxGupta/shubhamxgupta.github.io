@@ -7,14 +7,29 @@ export interface ExperienceItem {
   achievements?: string[];
   type: "work" | "education";
   active?: boolean;
+  logo: string;
 }
 
 export const experienceData: ExperienceItem[] = [
   {
+    id: "walmart",
+    role: "Software Engineer Intern, Sam's Club",
+    company: "Walmart Global Tech",
+    period: "May 2026 - Present",
+    type: "work",
+    description: "Working under the Tires, Batteries, and Chargers (TBC) department to build internal monitoring tools and platforms.",
+    achievements: [
+      "Developing a real-time monitoring and visualization dashboard to track API calls and service-to-service communication across different microservices",
+      "Engineering a team t-shirt merchandise website as a side project, incorporating Single Sign-On (SSO) authentication for secure internal access"
+    ],
+    active: true,
+    logo: "/experience/walmart.jpg"
+  },
+  {
     id: "samsung",
     role: "Team Lead - Research Intern",
     company: "Samsung PRISM Remote",
-    period: "Jun 2025 - Apr 2026",
+    period: "Jun 2025 - May 2026",
     type: "work",
     description: "Leading a 4-person team in developing a secure XML-to-Jetpack Compose migration tool.",
     achievements: [
@@ -22,7 +37,8 @@ export const experienceData: ExperienceItem[] = [
       "Engineered static analysis rules in Kotlin to preemptively detect insecure XML patterns (e.g., hardcoded secrets) prior to conversion",
       "Conducting bi-weekly code reviews and enforcing secure coding guidelines, resulting in zero critical vulnerabilities in the beta release"
     ],
-    active: false
+    active: false,
+    logo: "/experience/samsung.png"
   },
   {
     id: "bluestocks",
@@ -37,7 +53,8 @@ export const experienceData: ExperienceItem[] = [
       "Designed and implemented RESTful APIs using Django and Django REST Framework",
       "Managed PostgreSQL database schema and enabled document upload features"
     ],
-    active: false
+    active: false,
+    logo: "/experience/bluestock.webp"
   },
   {
     id: "sparks",
@@ -51,7 +68,8 @@ export const experienceData: ExperienceItem[] = [
       "Effectively communicated complex concepts to co-workers",
       "Developed valuable projects and experience in website making"
     ],
-    active: false
+    active: false,
+    logo: "/experience/sparks-foundation.jpg"
   },
   {
     id: "vit",
@@ -59,8 +77,9 @@ export const experienceData: ExperienceItem[] = [
     company: "Vellore Institute of Technology, Chennai",
     period: "2023 - Present",
     type: "education",
-    description: "CGPA: 8.3 (5 sem). Active member of Robotics Club.",
-    active: true
+    description: "CGPA: 8.4 (6 semesters)",
+    active: true,
+    logo: "/experience/vitc.jpg"
   },
   {
     id: "mps",
@@ -69,6 +88,7 @@ export const experienceData: ExperienceItem[] = [
     period: "2011 - 2023",
     type: "education",
     description: "CGPA: 8",
-    active: false
+    active: false,
+    logo: "/experience/mps.jpg"
   }
 ];
