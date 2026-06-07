@@ -2,6 +2,8 @@ import { MetadataRoute } from "next";
 import { caseStudies } from "@/data/caseStudies";
 import { writings } from "@/data/writings";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://shubhamxgupta.xyz";
 
