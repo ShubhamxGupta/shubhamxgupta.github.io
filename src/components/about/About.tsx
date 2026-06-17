@@ -30,8 +30,8 @@ export default function About() {
               {/* Photo 3 (Left Wing) */}
               <div
                 className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 z-10 bg-slate-200 origin-bottom-right
-              rotate-[-6deg] translate-x-[-10px] scale-95 opacity-80
-              group-hover:rotate-[-12deg] group-hover:translate-x-[-50%] group-hover:scale-100 group-hover:opacity-100"
+              -rotate-6 -translate-x-2.5 scale-95 opacity-80
+              group-hover:-rotate-12 group-hover:translate-x-[-50%] group-hover:scale-100 group-hover:opacity-100"
               >
                 <Image
                   src="/images/profile/photo3.jpg"
@@ -43,8 +43,8 @@ export default function About() {
               {/* Photo 2 (Right Wing) */}
               <div
                 className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 z-20 bg-slate-200 origin-bottom-left
-              rotate-[6deg] translate-x-[10px] scale-95 opacity-80
-              group-hover:rotate-[12deg] group-hover:translate-x-[50%] group-hover:scale-100 group-hover:opacity-100"
+              rotate-6 translate-x-2.5 scale-95 opacity-80
+              group-hover:rotate-12 group-hover:translate-x-[50%] group-hover:scale-100 group-hover:opacity-100"
               >
                 <Image
                   src="/images/profile/photo2.png"
@@ -78,7 +78,7 @@ export default function About() {
               <p>
                 Hi, I&apos;m Shubham Gupta - a passionate Computer Science
                 graduate from Vellore Institute of Technology, Chennai, with a
-                CGPA of 8.3/10.
+                CGPA of 8.4/10.
               </p>
               <p>
                 My expertise lies in Artificial Intelligence and Machine
