@@ -6,14 +6,14 @@ import Projects from "@/components/projects/Projects";
 import Contact from "@/components/contact/Contact";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-    </>
-  );
+    return (
+        <>
+            <Hero/>
+            <About/>
+            <Skills/>
+            <Experience/>
+            <Projects/>
+            <Contact/>
+        </>
+    );
 }

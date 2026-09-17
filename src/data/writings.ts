@@ -1,22 +1,22 @@
 export interface Post {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  content: string; // Markdown content
+    id: string;
+    title: string;
+    excerpt: string;
+    date: string;
+    readTime: string;
+    tags: string[];
+    content: string; // Markdown content
 }
 
 export const writings: Post[] = [
-  {
-    id: "composition-over-inheritance-ai",
-    title: "Why I Treat AI Models as Components, Not Magic",
-    excerpt: "Moving beyond the 'black box' mentality to engineering robust, composable AI systems.",
-    date: "Dec 15, 2025",
-    readTime: "5 min read",
-    tags: ["AI Engineering", "System Design", "Philosophy"],
-    content: `
+    {
+        id: "composition-over-inheritance-ai",
+        title: "Why I Treat AI Models as Components, Not Magic",
+        excerpt: "Moving beyond the 'black box' mentality to engineering robust, composable AI systems.",
+        date: "Dec 15, 2025",
+        readTime: "5 min read",
+        tags: ["AI Engineering", "System Design", "Philosophy"],
+        content: `
 # Why I Treat AI Models as Components, Not Magic
 
 In the rush to adopt LLMs, many engineering teams treat models as magical black boxes. You throw text in, you get text out. 
@@ -35,15 +35,15 @@ You wouldn't deploy a database without monitoring. Don't deploy an LLM without t
 
 ...
     `,
-  },
-  {
-    id: "optimizing-react-for-ai",
-    title: "Optimizing React for High-Frequency Data Streams",
-    excerpt: "Lessons learned building real-time dashboards for neural network training visualization.",
-    date: "Nov 02, 2025",
-    readTime: "7 min read",
-    tags: ["React", "Performance", "Visualization"],
-    content: `
+    },
+    {
+        id: "optimizing-react-for-ai",
+        title: "Optimizing React for High-Frequency Data Streams",
+        excerpt: "Lessons learned building real-time dashboards for neural network training visualization.",
+        date: "Nov 02, 2025",
+        readTime: "7 min read",
+        tags: ["React", "Performance", "Visualization"],
+        content: `
 # Optimizing React for High-Frequency Data Streams
 
 Visualizing neural network training in real-time involves rendering thousands of data points per second. 
@@ -77,5 +77,5 @@ useEffect(() => {
 
 This approach decouples data ingestion from rendering, keeping the UI buttery smooth even under heavy load.
     `,
-  },
+    },
 ];

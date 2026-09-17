@@ -1,63 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --color-primary: #3b82f6;
-  --color-secondary: #64748b;
-  --color-dark: #0f172a;
-  --color-light: #f8fafc;
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --color-primary: #3b82f6;
+    --color-secondary: #64748b;
+    --color-dark: #0f172a;
+    --color-light: #f8fafc;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+    background: #cbd5e1;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+    background: #94a3b8;
 }
 
 @utility no-scrollbar {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  initial-letter: true;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    initial-letter: normal;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-dark);
-    color: var(--color-light);
-  }
+    body {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: #334155;
-  }
+    ::-webkit-scrollbar-thumb {
+        background: #334155;
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
-  }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+    }
 }

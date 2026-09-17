@@ -2,22 +2,27 @@
 
 ![Portfolio Preview](/public/images/ui/ai-flow.png)
 
-A high-performance, interactive portfolio built with **Next.js 16**, **Tailwind CSS v4**, and **Framer Motion**. Designed to showcase deep engineering expertise through technical case studies, essays, and a unique "hacker" aesthetic.
+A high-performance, interactive portfolio built with **Next.js 16**, **Tailwind CSS v4**, and **Framer Motion**.
+Designed to showcase deep engineering expertise through technical case studies, essays, and a unique "hacker" aesthetic.
 
 ## 🚀 Key Features
 
 ### 🌟 Unique Interactions
 
-- **MacOS-Style Dock**: Bottom navigation with "Push Physics" (neighbors move aside), localized magnification, and integrated Search trigger.
-- **Target Box Cursor**: Custom "bracket" cursor that snaps to interactive elements (Dock, Socials) for a high-precision feel.
-- **Hero Code Window**: A floating, 3D-tilted IDE window that "types" out your bio in Python (`engineer.py`), complete with syntax highlighting.
+- **MacOS-Style Dock**: Bottom navigation with "Push Physics" (neighbors move aside), localized magnification, and
+  integrated Search trigger.
+- **Target Box Cursor**: Custom "bracket" cursor that snaps to interactive elements (Dock, Socials) for a high-precision
+  feel.
+- **Hero Code Window**: A floating, 3D-tilted IDE window that "types" out your bio in Python (`engineer.py`), complete
+  with syntax highlighting.
 - **3D Project Carousel**: "Coverflow" style gallery for browsing projects with depth and focus effects.
 - **Interactive Stacks**: "About Me" profile photos that stack like cards and fan out (spread wide) on hover.
 - **Command Palette (`Cmd+K`)**: Global keyboard navigation for quick access to all sections.
 
 ### 📚 Content Sections
 
-- **Case Studies**: Deep-dive engineering breakdowns (Problem, Constraints, Solution, Tradeoffs, Outcome) with technical specs.
+- **Case Studies**: Deep-dive engineering breakdowns (Problem, Constraints, Solution, Tradeoffs, Outcome) with technical
+  specs.
 - **Writing**: An editorial-style blog for technical essays and thoughts.
 - **Now Page**: A personal dashboard tracking current focus, builds, and learning goals.
 - **Projects**: 3D interactive showcase with "Star" GitHub integration.
@@ -25,7 +30,8 @@ A high-performance, interactive portfolio built with **Next.js 16**, **Tailwind 
 ### 🎨 Design & Tech
 
 - **Typography System**: Professional pairing of **Outfit** (Sans) and **JetBrains Mono** (Code).
-- **Engineered Visuals**: Live neural network simulation, floating 3D elements, and physics-based motion (Framer Motion).
+- **Engineered Visuals**: Live neural network simulation, floating 3D elements, and physics-based motion (Framer
+  Motion).
 - **SEO Optimized**: JSON-LD structured data for Person/Profile validation.
 
 ## 🛠️ Tech Stack
