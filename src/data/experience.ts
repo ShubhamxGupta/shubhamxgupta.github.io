@@ -1,98 +1,98 @@
 export interface ExperienceItem {
-  id: string;
-  role: string;
-  company: string;
-  period: string;
-  description?: string;
-  achievements?: string[];
-  type: "work" | "education";
-  active?: boolean;
-  logo: string;
+    id: string;
+    role: string;
+    company: string;
+    period: string;
+    description?: string;
+    achievements?: string[];
+    type: "work" | "education";
+    active?: boolean;
+    logo: string;
 }
 
 export const experienceData: ExperienceItem[] = [
-  {
-    id: "walmart",
-    role: "Software Engineer Intern, Sam's Club",
-    company: "Walmart Global Tech",
-    period: "May 2026 - Jul 2026",
-    type: "work",
-    description:
-      "Working under the Tires, Batteries, and Chargers (TBC) department to build internal monitoring tools and platforms.",
-    achievements: [
-      "Developing a real-time monitoring and visualization dashboard to track API calls and service-to-service communication across different microservices",
-      "Engineering a team t-shirt merchandise website as a side project, incorporating Single Sign-On (SSO) authentication for secure internal access",
-    ],
-    active: false,
-    logo: "/experience/walmart.jpg",
-  },
-  {
-    id: "samsung",
-    role: "Team Lead - Research Intern",
-    company: "Samsung PRISM Remote",
-    period: "Jun 2025 - May 2026",
-    type: "work",
-    description:
-      "Leading a 4-person team in developing a secure XML-to-Jetpack Compose migration tool.",
-    achievements: [
-      "Reduced UI modernization efforts by approximately 40%",
-      "Engineered static analysis rules in Kotlin to preemptively detect insecure XML patterns (e.g., hardcoded secrets) prior to conversion",
-      "Conducting bi-weekly code reviews and enforcing secure coding guidelines, resulting in zero critical vulnerabilities in the beta release",
-    ],
-    active: false,
-    logo: "/experience/samsung.png",
-  },
-  {
-    id: "bluestocks",
-    role: "Software Developer Intern",
-    company: "BlueStocks Fintech",
-    period: "May 2025 - June 2025",
-    type: "work",
-    description:
-      "Worked with high-quality standards and best practices in Software Development.",
-    achievements: [
-      "Built a secure user authentication system with JWT",
-      "Developed responsive frontend components using React, Tailwind CSS, and Vite",
-      "Designed and implemented RESTful APIs using Django and Django REST Framework",
-      "Managed PostgreSQL database schema and enabled document upload features",
-    ],
-    active: false,
-    logo: "/experience/bluestock.webp",
-  },
-  {
-    id: "sparks",
-    role: "Web Developer",
-    company: "The Sparks Foundation",
-    period: "Aug 2024 - Sep 2024",
-    type: "work",
-    description:
-      "Established expertise in Web Development during the internship program.",
-    achievements: [
-      "Consistently delivered high-quality and efficient solutions codes",
-      "Effectively communicated complex concepts to co-workers",
-      "Developed valuable projects and experience in website making",
-    ],
-    active: false,
-    logo: "/experience/sparks-foundation.jpg",
-  },
-  {
-    id: "vit",
-    role: "Bachelor of Technology",
-    company: "Vellore Institute of Technology, Chennai",
-    period: "2023 - Present",
-    type: "education",
-    description: "CGPA: 8.5 (6 semesters)",
-    active: true,
-    logo: "/experience/vitc.jpg",
-  },
-  {
-    id: "mps",
-    role: "Higher Secondary Education",
-    company: "Maheshwari Public School, Jaipur",
-    period: "2011 - 2023",
-    type: "education",
-    description: "Xth Percentage: 90% || XIIth Percentage: 80%",
-    active: false,
-    logo: "/experience/mps.jpg",
-  },
+    {
+        id: "walmart",
+        role: "Software Engineer Intern, Sam's Club",
+        company: "Walmart Global Tech",
+        period: "May 2026 - Jul 2026",
+        type: "work",
+        description:
+            "Working under the Tires, Batteries, and Chargers (TBC) department to build internal monitoring tools and platforms.",
+        achievements: [
+            "Developing a real-time monitoring and visualization dashboard to track API calls and service-to-service communication across different microservices",
+            "Engineering a team t-shirt merchandise website as a side project, incorporating Single Sign-On (SSO) authentication for secure internal access",
+        ],
+        active: false,
+        logo: "/experience/walmart.jpg",
+    },
+    {
+        id: "samsung",
+        role: "Team Lead - Research Intern",
+        company: "Samsung PRISM Remote",
+        period: "Jun 2025 - May 2026",
+        type: "work",
+        description:
+            "Leading a 4-person team in developing a secure XML-to-Jetpack Compose migration tool.",
+        achievements: [
+            "Reduced UI modernization efforts by approximately 40%",
+            "Engineered static analysis rules in Kotlin to preemptively detect insecure XML patterns (e.g., hardcoded secrets) prior to conversion",
+            "Conducting bi-weekly code reviews and enforcing secure coding guidelines, resulting in zero critical vulnerabilities in the beta release",
+        ],
+        active: false,
+        logo: "/experience/samsung.png",
+    },
+    {
+        id: "bluestocks",
+        role: "Software Developer Intern",
+        company: "BlueStocks Fintech",
+        period: "May 2025 - June 2025",
+        type: "work",
+        description:
+            "Worked with high-quality standards and best practices in Software Development.",
+        achievements: [
+            "Built a secure user authentication system with JWT",
+            "Developed responsive frontend components using React, Tailwind CSS, and Vite",
+            "Designed and implemented RESTful APIs using Django and Django REST Framework",
+            "Managed PostgreSQL database schema and enabled document upload features",
+        ],
+        active: false,
+        logo: "/experience/bluestock.webp",
+    },
+    {
+        id: "sparks",
+        role: "Web Developer",
+        company: "The Sparks Foundation",
+        period: "Aug 2024 - Sep 2024",
+        type: "work",
+        description:
+            "Established expertise in Web Development during the internship program.",
+        achievements: [
+            "Consistently delivered high-quality and efficient solutions codes",
+            "Effectively communicated complex concepts to co-workers",
+            "Developed valuable projects and experience in website making",
+        ],
+        active: false,
+        logo: "/experience/sparks-foundation.jpg",
+    },
+    {
+        id: "vit",
+        role: "Bachelor of Technology",
+        company: "Vellore Institute of Technology, Chennai",
+        period: "2023 - Present",
+        type: "education",
+        description: "CGPA: 8.5 (6 semesters)",
+        active: true,
+        logo: "/experience/vitc.jpg",
+    },
+    {
+        id: "mps",
+        role: "Higher Secondary Education",
+        company: "Maheshwari Public School, Jaipur",
+        period: "2011 - 2023",
+        type: "education",
+        description: "Xth Percentage: 90% || XIIth Percentage: 80%",
+        active: false,
+        logo: "/experience/mps.jpg",
+    },
 ];

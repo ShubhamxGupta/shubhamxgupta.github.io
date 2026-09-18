@@ -1,24 +1,31 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Command} from "cmdk";
 import {useRouter} from "next/navigation";
+import {useTheme} from "next-themes";
 import {
     Search,
     Home,
     Briefcase,
     FileText,
     MapPin,
-    Linkedin,
     Mail,
     ExternalLink,
+    Terminal,
+    Sun,
+    Moon,
+    User,
+    Code2,
 } from "lucide-react";
-import {SiGithub} from "@icons-pack/react-simple-icons"
+import {SiGithub, SiX} from "@icons-pack/react-simple-icons";
+import {Linkedin} from "@/components/ui/LinkedinIcon";
 import {motion, AnimatePresence} from "framer-motion";
 
 export function CommandMenu() {
     const [open, setOpen] = useState(false);
     const router = useRouter();
+    const {resolvedTheme, setTheme} = useTheme();
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -59,7 +66,7 @@ export function CommandMenu() {
                         animate={{opacity: 1}}
                         exit={{opacity: 0}}
                         onClick={() => setOpen(false)}
-                        className="fixed inset-0 bg-slate-900/20 dark:bg-black/40 backdrop-blur-sm"
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm"
                     />
 
                     {/* Modal Content */}
@@ -72,133 +79,169 @@ export function CommandMenu() {
                     >
                         <Command
                             label="Global Command Menu"
-                            className="w-full bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden"
+                            className="w-full bg-white dark:bg-[#1c1917] rounded-2xl shadow-2xl border border-stone-200/80 dark:border-stone-800/80 overflow-hidden"
                         >
-                            <div className="flex items-center border-b border-slate-200 dark:border-slate-800 px-4">
-                                <Search className="w-5 h-5 text-slate-400 mr-3"/>
+                            <div className="flex items-center border-b border-stone-200/80 dark:border-stone-800/80 px-4">
+                                <Search className="w-5 h-5 text-stone-400 mr-3" />
                                 <Command.Input
-                                    className="flex-1 h-16 bg-transparent outline-none text-lg text-slate-900 dark:text-white placeholder:text-slate-400 font-sans"
-                                    placeholder="Type a command or search..."
+                                    className="flex-1 h-14 bg-transparent outline-none text-base text-stone-900 dark:text-[#fafaf9] placeholder:text-stone-400"
+                                    placeholder="Type a command or navigate..."
                                     autoFocus
                                 />
                                 <div
-                                    className="flex items-center gap-2 text-xs text-slate-400 font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+                                    className="flex items-center gap-1 text-[11px] text-stone-400 font-mono bg-stone-100 dark:bg-[#292524] px-2 py-0.5 rounded"
+                                >
                                     <span>ESC</span>
                                 </div>
                             </div>
 
                             <Command.List
-                                className="h-75 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800">
-                                <Command.Empty className="py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+                                className="h-80 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-stone-300 dark:scrollbar-thumb-stone-700"
+                            >
+                                <Command.Empty className="py-6 text-center text-sm text-stone-500 dark:text-stone-400">
                                     No results found.
                                 </Command.Empty>
 
                                 <Command.Group
-                                    heading="Navigation"
-                                    className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 mt-2"
+                                    heading="Actions"
+                                    className="text-xs font-mono font-semibold text-stone-400 uppercase tracking-wider mb-2 px-2 mt-2"
                                 >
-                                    <Item onSelect={() => runCommand(() => router.push("/"))}>
-                                        <Home className="w-4 h-4 mr-2"/>
-                                        Home
-                                    </Item>
                                     <Item
                                         onSelect={() =>
-                                            runCommand(() => router.push("/case-studies"))
+                                            runCommand(() => {
+                                                setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                                            })
                                         }
                                     >
-                                        <Briefcase className="w-4 h-4 mr-2"/>
-                                        Case Studies
+                                        {resolvedTheme === "dark" ? (
+                                            <>
+                                                <Sun className="w-4 h-4 mr-2.5 text-amber-500" />
+                                                <span>Switch to Light Theme</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Moon className="w-4 h-4 mr-2.5 text-indigo-500" />
+                                                <span>Switch to Dark Theme</span>
+                                            </>
+                                        )}
                                     </Item>
+
                                     <Item
-                                        onSelect={() => runCommand(() => router.push("/writing"))}
+                                        onSelect={() =>
+                                            runCommand(() => {
+                                                if (typeof window !== "undefined") {
+                                                    window.dispatchEvent(new CustomEvent("open-terminal"));
+                                                }
+                                            })
+                                        }
                                     >
-                                        <FileText className="w-4 h-4 mr-2"/>
-                                        Writing / Blog
-                                    </Item>
-                                    <Item onSelect={() => runCommand(() => router.push("/now"))}>
-                                        <MapPin className="w-4 h-4 mr-2"/>
-                                        Now Page
+                                        <Terminal className="w-4 h-4 mr-2.5 text-emerald-500" />
+                                        <span>Open Interactive Terminal</span>
                                     </Item>
                                 </Command.Group>
 
                                 <Command.Group
-                                    heading="Socials"
-                                    className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 mt-4"
+                                    heading="Navigation"
+                                    className="text-xs font-mono font-semibold text-stone-400 uppercase tracking-wider mb-2 px-2 mt-4"
+                                >
+                                    <Item onSelect={() => runCommand(() => router.push("/"))}>
+                                        <Home className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Home</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/#about"))}>
+                                        <User className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>About Me</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/#skills"))}>
+                                        <Code2 className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Skills &amp; Technologies</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/#projects"))}>
+                                        <Briefcase className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Featured Projects</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/case-studies"))}>
+                                        <Briefcase className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Case Studies</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/writing"))}>
+                                        <FileText className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Writing &amp; Articles</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/now"))}>
+                                        <MapPin className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>/now (Current Status)</span>
+                                    </Item>
+                                    <Item onSelect={() => runCommand(() => router.push("/#contact"))}>
+                                        <Mail className="w-4 h-4 mr-2.5 text-stone-400" />
+                                        <span>Contact</span>
+                                    </Item>
+                                </Command.Group>
+
+                                <Command.Group
+                                    heading="Socials & Connect"
+                                    className="text-xs font-mono font-semibold text-stone-400 uppercase tracking-wider mb-2 px-2 mt-4"
                                 >
                                     <Item
                                         onSelect={() =>
                                             runCommand(() =>
                                                 window.open(
                                                     "https://github.com/ShubhamxGupta",
-                                                    "_blank"
+                                                    "_blank",
+                                                    "noopener,noreferrer"
                                                 )
                                             )
                                         }
                                     >
-                                        <SiGithub className="w-4 h-4 mr-2"/>
-                                        GitHub
-                                        <ExternalLink className="w-3 h-3 ml-auto opacity-50"/>
+                                        <SiGithub className="w-4 h-4 mr-2.5" />
+                                        <span>GitHub</span>
+                                        <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-50" />
                                     </Item>
                                     <Item
                                         onSelect={() =>
                                             runCommand(() =>
                                                 window.open(
                                                     "https://linkedin.com/in/shubhamxgupta",
-                                                    "_blank"
+                                                    "_blank",
+                                                    "noopener,noreferrer"
                                                 )
                                             )
                                         }
                                     >
-                                        <Linkedin className="w-4 h-4 mr-2"/>
-                                        LinkedIn
-                                        <ExternalLink className="w-3 h-3 ml-auto opacity-50"/>
+                                        <Linkedin className="w-4 h-4 mr-2.5" />
+                                        <span>LinkedIn</span>
+                                        <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-50" />
                                     </Item>
                                     <Item
                                         onSelect={() =>
-                                            runCommand(() => {
-                                                const email = "shubhamxgupta1@gmail.com";
-                                                if (navigator.clipboard) {
-                                                    navigator.clipboard.writeText(email)
-                                                        .then(() => alert("Email copied to clipboard!"))
-                                                        .catch((err) => console.error("Clipboard copy failed", err));
-                                                } else {
-                                                    const textarea = document.createElement("textarea");
-                                                    textarea.value = email;
-                                                    document.body.appendChild(textarea);
-                                                    textarea.select();
-                                                    document.execCommand("copy");
-                                                    document.body.removeChild(textarea);
-                                                    alert("Email copied to clipboard!");
-                                                }
-                                            })
+                                            runCommand(() =>
+                                                window.open(
+                                                    "https://x.com/ShubhamxGupta1",
+                                                    "_blank",
+                                                    "noopener,noreferrer"
+                                                )
+                                            )
                                         }
                                     >
-                                        <Mail className="w-4 h-4 mr-2"/>
-                                        Copy Email
-                                        <span className="ml-auto text-xs opacity-50 font-mono">
-                      shubhamxgupta1@gmail.com
-                    </span>
+                                        <SiX className="w-4 h-4 mr-2.5" />
+                                        <span>Twitter / X</span>
+                                        <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-50" />
                                     </Item>
                                 </Command.Group>
                             </Command.List>
 
                             <div
-                                className="border-t border-slate-200 dark:border-slate-800 p-2 flex items-center justify-between text-xs text-slate-500 bg-slate-50 dark:bg-slate-900/50">
-                                <div className="flex gap-4">
-                  <span className="flex items-center gap-1">
-                    <kbd className="bg-slate-200 dark:bg-slate-700 px-1 rounded">
-                      ↵
-                    </kbd>{" "}
-                      to select
-                  </span>
+                                className="border-t border-stone-200/80 dark:border-stone-800/80 p-3 flex items-center justify-between text-xs text-stone-400 bg-stone-50 dark:bg-[#1c1917]/50"
+                            >
+                                <div className="flex gap-4 font-mono text-[11px]">
                                     <span className="flex items-center gap-1">
-                    <kbd className="bg-slate-200 dark:bg-slate-700 px-1 rounded">
-                      ↑↓
-                    </kbd>{" "}
-                                        to navigate
-                  </span>
+                                        <kbd className="bg-stone-200 dark:bg-stone-800 px-1 rounded">↵</kbd> select
+                                    </span>
+                                    <span className="flex items-center gap-1">
+                                        <kbd className="bg-stone-200 dark:bg-stone-800 px-1 rounded">↑↓</kbd> navigate
+                                    </span>
                                 </div>
-                                <span className="font-mono opacity-50">G-CMD v1.0</span>
+                                <span className="font-mono text-[11px] opacity-60">⌘K Menu</span>
                             </div>
                         </Command>
                     </motion.div>
@@ -211,14 +254,14 @@ export function CommandMenu() {
 function Item({
                   children,
                   onSelect,
-              }: {
+              }: Readonly<{
     children: React.ReactNode;
     onSelect: () => void;
-}) {
+}>) {
     return (
         <Command.Item
             onSelect={onSelect}
-            className="flex items-center px-3 py-3 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 aria-selected:bg-blue-50 dark:aria-selected:bg-blue-900/20 aria-selected:text-blue-600 dark:aria-selected:text-blue-400 cursor-pointer transition-colors"
+            className="flex items-center px-3.5 py-2.5 rounded-xl text-sm text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#292524] aria-selected:bg-indigo-50 dark:aria-selected:bg-indigo-950/40 aria-selected:text-indigo-600 dark:aria-selected:text-indigo-400 cursor-pointer transition-colors"
         >
             {children}
         </Command.Item>

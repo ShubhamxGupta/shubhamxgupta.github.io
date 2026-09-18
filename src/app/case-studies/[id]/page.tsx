@@ -6,9 +6,9 @@ export function generateStaticParams() {
     return caseStudies.map((study) => ({id: study.id}));
 }
 
-export default async function CaseStudyDetailPage({params,}: {
+export default async function CaseStudyDetailPage({params,}: Readonly<{
     params: Promise<{ id: string }>;
-}) {
+}>) {
     const {id} = await params;
     const study = caseStudies.find((item) => item.id === id);
 
@@ -16,5 +16,5 @@ export default async function CaseStudyDetailPage({params,}: {
         notFound();
     }
 
-    return <CaseStudyDetailClient study={study}/>;
+    return <CaseStudyDetailClient study={study} />;
 }

@@ -2,45 +2,47 @@
 
 import Section from "@/components/ui/Section";
 import type {CaseStudy} from "@/data/caseStudies";
-import CodeBlock from "@/components/ui/CodeBlock";
 import {
     ArrowLeft,
-    CheckCircle,
-    AlertTriangle,
+    Box,
+    CheckCircle2,
+    XCircle,
     Cpu,
     TrendingUp,
+    AlertTriangle,
 } from "lucide-react";
 import Link from "next/link";
 import {motion} from "framer-motion";
-import ReactMarkdown from "react-markdown";
 
 export default function CaseStudyDetailClient({study}: { study: CaseStudy }) {
     return (
-        <article className="pt-24 pb-20 bg-slate-50 dark:bg-slate-950 min-h-screen">
+        <article className="pt-24 pb-28 min-h-screen">
             {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 pb-16 mb-16">
+            <div className="border-b border-stone-200/80 dark:border-stone-800/80 pb-14 mb-14">
                 <Section>
-                    <div className="max-w-4xl mx-auto">
+                    <div className="max-w-4xl mx-auto px-6">
                         <Link
                             href="/case-studies"
-                            className="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 mb-8 transition-colors text-sm font-bold uppercase tracking-wide"
+                            className="inline-flex items-center gap-2 text-stone-500 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition-colors text-xs font-mono font-semibold uppercase tracking-wider group"
                         >
-                            <ArrowLeft size={16}/> Back to Specs
+                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                            <span>Back to Architecture Specs</span>
                         </Link>
 
                         <motion.div
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold tracking-wider uppercase mb-6"
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 dark:bg-[#1c1917] border border-stone-200/80 dark:border-stone-800/80 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-medium uppercase tracking-wider mb-4"
                         >
-                            <Cpu size={14}/> Technical Spec
+                            <Cpu size={13} />
+                            <span>Technical Spec</span>
                         </motion.div>
 
                         <motion.h1
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.1}}
-                            className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 leading-tight tracking-tight"
+                            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 dark:text-[#fafaf9] mb-8 leading-tight tracking-tight"
                         >
                             {study.title}
                         </motion.h1>
@@ -49,36 +51,36 @@ export default function CaseStudyDetailClient({study}: { study: CaseStudy }) {
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.2}}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800"
+                            className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-stone-100/70 dark:bg-[#1c1917]/70 rounded-2xl border border-stone-200/80 dark:border-stone-800/80 text-xs font-mono"
                         >
                             <div className="flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-slate-400 mb-1">
-                  Role
-                </span>
-                                <span className="font-bold text-slate-900 dark:text-white text-sm">
-                  {study.role}
-                </span>
+                                <span className="text-[11px] uppercase tracking-wider text-stone-400 mb-1">
+                                    Role
+                                </span>
+                                <span className="font-semibold text-stone-900 dark:text-stone-100">
+                                    {study.role}
+                                </span>
                             </div>
                             <div className="flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-slate-400 mb-1">
-                  Timeline
-                </span>
-                                <span className="font-bold text-slate-900 dark:text-white text-sm">
-                  {study.timeline}
-                </span>
+                                <span className="text-[11px] uppercase tracking-wider text-stone-400 mb-1">
+                                    Timeline
+                                </span>
+                                <span className="font-semibold text-stone-900 dark:text-stone-100">
+                                    {study.timeline}
+                                </span>
                             </div>
                             <div className="flex flex-col md:col-span-2">
-                <span className="text-xs uppercase tracking-wider text-slate-400 mb-1">
-                  Tech Stack
-                </span>
-                                <div className="flex flex-wrap gap-2">
+                                <span className="text-[11px] uppercase tracking-wider text-stone-400 mb-1">
+                                    Tech Stack
+                                </span>
+                                <div className="flex flex-wrap gap-1.5">
                                     {study.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-700 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-600"
+                                            className="px-2 py-0.5 rounded bg-stone-200/60 dark:bg-stone-800/80 text-stone-700 dark:text-stone-300 border border-stone-300/40 dark:border-stone-700/40"
                                         >
-                      {tag}
-                    </span>
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -89,128 +91,92 @@ export default function CaseStudyDetailClient({study}: { study: CaseStudy }) {
 
             {/* Content */}
             <Section>
-                <div className="max-w-4xl mx-auto space-y-20">
+                <div className="max-w-4xl mx-auto px-6 space-y-16">
                     {/* Problem & Constraints */}
-                    <div className="grid md:grid-cols-3 gap-12">
+                    <div className="grid md:grid-cols-3 gap-8">
                         <div className="md:col-span-2">
-                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                                <AlertTriangle className="text-amber-500" size={24}/> The
-                                Challenge
+                            <h2 className="font-display text-2xl font-bold text-stone-900 dark:text-[#fafaf9] mb-4 flex items-center gap-2.5">
+                                <AlertTriangle className="text-amber-500" size={20} />
+                                <span>The Engineering Challenge</span>
                             </h2>
-                            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                            <p className="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed">
                                 {study.problem}
                             </p>
                         </div>
-                        <div
-                            className="bg-amber-50 dark:bg-amber-900/10 p-6 rounded-2xl border border-amber-100 dark:border-amber-900/30 h-fit">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-amber-700 dark:text-amber-500 mb-4">
+                        <div className="bg-amber-500/10 p-6 rounded-2xl border border-amber-500/20 h-fit">
+                            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-3">
                                 Key Constraints
                             </h3>
-                            <ul className="space-y-3">
-                                {study.constraints.map((constraint, i) => (
+                            <ul className="space-y-2.5">
+                                {study.constraints.map((constraint) => (
                                     <li
-                                        key={i}
-                                        className="flex gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"
+                                        key={constraint}
+                                        className="flex gap-2.5 text-xs text-stone-700 dark:text-stone-300 font-medium"
                                     >
                                         <span className="text-amber-500 font-bold">•</span>
-                                        {constraint}
+                                        <span>{constraint}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
 
-                    <hr className="border-slate-200 dark:border-slate-800"/>
+                    <hr className="border-stone-200/80 dark:border-stone-800/80" />
 
-                    {/* Solution (Markdown Support) */}
-                    <div className="max-w-none">
-                        <div
-                            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300 prose-code:bg-transparent prose-code:p-0">
-                            <ReactMarkdown
-                                components={{
-                                    code(props) {
-                                        const {children, className, ...rest} = props;
-                                        const match = /language-(\w+)/.exec(className || "");
-                                        return match ? (
-                                            <CodeBlock className={className} {...rest}>
-                                                {children}
-                                            </CodeBlock>
-                                        ) : (
-                                            <code
-                                                className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-sm font-mono text-pink-500 dark:text-pink-400"
-                                                {...rest}
-                                            >
-                                                {children}
-                                            </code>
-                                        );
-                                    },
-                                }}
-                            >
-                                {study.solution}
-                            </ReactMarkdown>
+                    {/* Technical Solution */}
+                    <div>
+                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 dark:text-[#fafaf9] mb-6 flex items-center gap-2.5">
+                            <Box className="text-indigo-500" size={22} />
+                            <span>Architecture &amp; Technical Solution</span>
+                        </h2>
+                        <div className="whitespace-pre-line text-stone-600 dark:text-stone-300 leading-relaxed text-base">
+                            {study.solution}
                         </div>
                     </div>
 
-                    <hr className="border-slate-200 dark:border-slate-800"/>
-
-                    {/* Tradeoffs */}
+                    {/* Key Technical Decisions & Tradeoffs */}
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
-                            Engineering Tradeoffs
+                        <h2 className="font-display text-2xl font-bold text-stone-900 dark:text-[#fafaf9] mb-6">
+                            Technical Decisions &amp; Trade-offs
                         </h2>
-                        <div className="grid gap-6">
-                            {study.tradeoffs.map((tradeoff, i) => (
+                        <div className="grid md:grid-cols-2 gap-4">
+                            {study.tradeoffs.map((tradeoff) => (
                                 <div
-                                    key={i}
-                                    className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm"
+                                    key={tradeoff.decision}
+                                    className="p-6 rounded-2xl bg-stone-100/70 dark:bg-[#1c1917]/70 border border-stone-200/80 dark:border-stone-800/80 space-y-3"
                                 >
-                                    <div
-                                        className="bg-slate-50 dark:bg-slate-800/50 px-6 py-4 border-b border-slate-100 dark:border-slate-800 font-bold text-slate-900 dark:text-white">
+                                    <h3 className="font-display font-bold text-stone-900 dark:text-stone-100 text-base">
                                         {tradeoff.decision}
+                                    </h3>
+                                    <div className="flex items-start gap-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+                                        <CheckCircle2 size={15} className="text-emerald-500 shrink-0 mt-0.5" />
+                                        <span><strong>Pro:</strong> {tradeoff.pros}</span>
                                     </div>
-                                    <div className="grid md:grid-cols-2">
-                                        <div
-                                            className="p-6 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 bg-emerald-50/10 dark:bg-emerald-900/5">
-                      <span
-                          className="flex items-center gap-2 text-xs font-bold uppercase text-emerald-600 dark:text-emerald-400 mb-2">
-                        <CheckCircle size={14}/> Pros
-                      </span>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                {tradeoff.pros}
-                                            </p>
-                                        </div>
-                                        <div className="p-6 bg-red-50/10 dark:bg-red-900/5">
-                      <span
-                          className="flex items-center gap-2 text-xs font-bold uppercase text-red-600 dark:text-red-400 mb-2">
-                        <AlertTriangle size={14}/> Cons
-                      </span>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                {tradeoff.cons}
-                                            </p>
-                                        </div>
+                                    <div className="flex items-start gap-2 text-xs sm:text-sm text-stone-500 dark:text-stone-400">
+                                        <XCircle size={15} className="text-rose-400 shrink-0 mt-0.5" />
+                                        <span><strong>Con:</strong> {tradeoff.cons}</span>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Outcome */}
-                    <div
-                        className="bg-slate-900 dark:bg-blue-950 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-                        <div
-                            className="absolute top-0 right-0 p-32 bg-blue-500 rounded-full blur-3xl opacity-20 pointer-events-none -mr-16 -mt-16"></div>
+                    {/* Outcome & Impact */}
+                    <div className="bg-indigo-950/80 rounded-3xl p-8 md:p-10 text-white relative overflow-hidden border border-indigo-900/60 shadow-xl">
+                        <div className="absolute top-0 right-0 p-32 bg-indigo-500 rounded-full blur-3xl opacity-20 pointer-events-none -mr-16 -mt-16" />
 
-                        <h2 className="relative text-2xl font-bold mb-8 flex items-center gap-3">
-                            <TrendingUp className="text-blue-400"/> Impact & Outcome
+                        <h2 className="relative font-display text-2xl font-bold mb-6 flex items-center gap-2.5">
+                            <TrendingUp className="text-indigo-400" />
+                            <span>Impact &amp; Engineering Outcomes</span>
                         </h2>
 
-                        <div className="relative grid sm:grid-cols-3 gap-6">
-                            {study.outcome.map((item, i) => (
+                        <div className="relative grid sm:grid-cols-3 gap-4">
+                            {study.outcome.map((item) => (
                                 <div
-                                    key={i}
-                                    className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
+                                    key={item}
+                                    className="bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/10"
                                 >
-                                    <p className="font-medium text-blue-100 leading-relaxed">
+                                    <p className="font-medium text-xs sm:text-sm text-indigo-100 leading-relaxed">
                                         {item}
                                     </p>
                                 </div>

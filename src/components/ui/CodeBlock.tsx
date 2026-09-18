@@ -8,7 +8,7 @@ interface CodeBlockProps {
     className?: string;
 }
 
-export default function CodeBlock({children, className}: CodeBlockProps) {
+export default function CodeBlock({children, className}: Readonly<CodeBlockProps>) {
     const [isCopied, setIsCopied] = useState(false);
     const language = className?.replace("language-", "") || "code";
 
@@ -30,14 +30,15 @@ export default function CodeBlock({children, className}: CodeBlockProps) {
 
     return (
         <div
-            className="relative group my-8 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-2xl">
+            className="relative group my-8 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-2xl"
+        >
             {/* Header / Toolbar */}
             <div className="flex items-center justify-between px-4 py-3 bg-slate-900/50 border-b border-slate-800">
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50"/>
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50"/>
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50"/>
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50" />
                     </div>
                     <span className="text-xs font-mono font-medium text-slate-500 ml-2 uppercase tracking-wider">
             {language}
@@ -51,12 +52,12 @@ export default function CodeBlock({children, className}: CodeBlockProps) {
                 >
                     {isCopied ? (
                         <>
-                            <Check size={14} className="text-emerald-400"/>
+                            <Check size={14} className="text-emerald-400" />
                             <span className="text-emerald-400">Copied!</span>
                         </>
                     ) : (
                         <>
-                            <Copy size={14}/>
+                            <Copy size={14} />
                             <span>Copy</span>
                         </>
                     )}

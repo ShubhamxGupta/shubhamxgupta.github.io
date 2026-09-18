@@ -3,38 +3,34 @@
 import {motion, useScroll, useTransform} from "framer-motion";
 import React from "react";
 
-export function TubeLight({sectionRef,}: {
-    sectionRef: React.RefObject<HTMLDivElement | null>;
-}) {
+export function TubeLight({
+                              sectionRef,
+                          }: Readonly<{
+    sectionRef: React.RefObject<HTMLElement | null>;
+}>) {
     const {scrollYProgress} = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"],
     });
 
-    // Bell curve effect: 0 -> 1 -> 0
-    // Bell curve effect: 0 -> 1 -> 0
-    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
-    const scaleX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1.5, 0]); // Closes completely (0) to wider (1.5)
+    const opacity = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0.9, 1, 0.9, 0]);
+    const scaleX = useTransform(scrollYProgress, [0, 0.5, 1], [0.05, 2.2, 0.05]);
 
     return (
         <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none z-20 overflow-visible">
             <motion.div
                 style={{opacity, scaleX}}
-                className="relative w-1/4 h-1 md:h-2" // Slightly narrower base, responsive height
+                className="relative w-1/4 md:w-1/5 h-1.5"
             >
-                {/* Core Light - Sharp & Bright */}
-                <div className="absolute inset-0 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,1)]"/>
+                {/* Core Lamp */}
+                <div className="absolute inset-0 bg-white dark:bg-indigo-100 rounded-full shadow-[0_0_12px_rgba(255,255,255,1),0_0_24px_rgba(129,140,248,0.8)]" />
 
-                {/* Inner Glow - Intense */}
-                <div className="absolute -inset-1 bg-white/50 rounded-full blur-xs"/>
+                {/* Inner Glow Layer */}
+                <div className="absolute -inset-0.5 bg-indigo-200/80 rounded-full blur-[2px]" />
 
-                {/* Outer Glow - Blue/Purple Tint (reduced blur for sharpness) */}
-                <div className="absolute -inset-4 bg-blue-500/40 rounded-full blur-[15px]"/>
-                <div className="absolute -inset-8 bg-purple-500/30 rounded-full blur-[30px]"/>
-
-                {/* Sharp Reflection Line */}
-                <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-px bg-white mix-blend-overlay"/>
+                {/* Outer Radiant Glow */}
+                <div className="absolute -inset-x-8 -top-3 -bottom-3 bg-indigo-500/40 dark:bg-indigo-400/40 rounded-full blur-lg" />
+                <div className="absolute -inset-x-16 -top-6 -bottom-6 bg-purple-500/25 dark:bg-indigo-600/25 rounded-full blur-[32px]" />
             </motion.div>
         </div>
     );

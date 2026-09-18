@@ -40,7 +40,7 @@ export default function SpotlightCursor() {
 
     const background = useMotionTemplate`radial-gradient(
     ${size}px circle at ${springX}px ${springY}px,
-    rgba(29, 78, 216, ${opacity}),
+    rgba(129, 140, 248, ${opacity}),
     transparent 80%
   )`;
 
@@ -70,18 +70,12 @@ export default function SpotlightCursor() {
         };
         checkPointer();
 
-        // Optional: Listen for changes
+        // Listen for pointer media query changes
         const mediaQuery = window.matchMedia("(pointer: fine)");
         const handleChange = (e: MediaQueryListEvent) => setShowCursor(e.matches);
 
-        // Modern browsers support addEventListener on MediaQueryList
-        if (mediaQuery.addEventListener) {
-            mediaQuery.addEventListener("change", handleChange);
-            return () => mediaQuery.removeEventListener("change", handleChange);
-        } else {
-            mediaQuery.addListener(handleChange);
-            return () => mediaQuery.removeListener(handleChange);
-        }
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
     }, []);
 
     // Don't render anything if not on a "fine" pointer device (mobile/tablet)

@@ -10,7 +10,7 @@ interface ProjectCardProps {
     index: number;
 }
 
-export default function ProjectCard({project, index}: ProjectCardProps) {
+export default function ProjectCard({project, index}: Readonly<ProjectCardProps>) {
     return (
         <motion.div
             initial={{opacity: 0, y: 20}}
@@ -29,7 +29,8 @@ export default function ProjectCard({project, index}: ProjectCardProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div
-                    className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors duration-300"/>
+                    className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors duration-300"
+                />
             </div>
 
             <div className="p-6 flex flex-col grow">
@@ -44,7 +45,7 @@ export default function ProjectCard({project, index}: ProjectCardProps) {
                         aria-label={`View live demo of ${project.title}`}
                         className="text-slate-400 hover:text-blue-600 transition-colors"
                     >
-                        <ArrowUpRight size={20}/>
+                        <ArrowUpRight size={20} />
                     </a>
                 </div>
 
