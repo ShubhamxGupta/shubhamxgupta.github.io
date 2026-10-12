@@ -1,23 +1,23 @@
 {
   "username": "ShubhamxGupta",
   "profileUrl": "https://leetcode.com/u/ShubhamxGupta/",
-  "updatedAt": "2026-10-11T03:30:16.867Z",
-  "ranking": 61405,
+  "updatedAt": "2026-10-12T03:54:11.804Z",
+  "ranking": 61498,
   "reputation": 887,
   "totalSolved": 832,
-  "totalQuestions": 4073,
+  "totalQuestions": 4081,
   "acceptanceRate": 84.8,
   "easy": {
     "solved": 486,
-    "total": 969
+    "total": 971
   },
   "medium": {
     "solved": 295,
-    "total": 2124
+    "total": 2128
   },
   "hard": {
     "solved": 51,
-    "total": 980
+    "total": 982
   },
   "contest": {
     "rating": 1934,
@@ -28,7 +28,7 @@
   },
   "calendar": {
     "streak": 59,
-    "totalActiveDays": 261
+    "totalActiveDays": 260
   },
   "topBadges": [
     {
